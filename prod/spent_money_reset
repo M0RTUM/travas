@@ -1,0 +1,22 @@
+from apscheduler.schedulers.blocking import BlockingScheduler # type: ignore
+from sqlalchemy import create_engine # type: ignore
+from sqlalchemy.orm import sessionmaker # type: ignore
+from models import User, Base
+
+engine = create_engine('sqlite:///your_database.db') 
+Session = sessionmaker(bind=engine)
+session = Session()
+
+def reset_spent_money():
+    users = session.query(User).all()
+    for user in users:
+        user.spent_money = 0
+    session.commit()
+    print("Spent money reset for all users.")
+
+scheduler = BlockingScheduler()
+scheduler.add_job(reset_spent_money, 'cron', month='*', day=1, hour=0, minute=0)  # Запуск каждый месяц в 00:00 первого числа
+
+if __name__ == "__main__":
+    print("Starting scheduler...")
+    scheduler.start()
