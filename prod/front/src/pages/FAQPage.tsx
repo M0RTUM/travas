@@ -2,13 +2,8 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import {faqs} from '../private.js'; 
 
-const faqs = [
-  {
-    question: 'QUESTION',
-    answer: 'ANSWER'
-  }
-];
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);

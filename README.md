@@ -34,6 +34,13 @@ export const teamContacts = [
   { name: 'NAME', telegram: '@ACCOUNT' }, //telegram account
 ];
 
+export const faqs = [
+  {
+    question: 'QUESTION',
+    answer: 'ANSWER'
+  },
+];
+
 ```
 Run
 ===
