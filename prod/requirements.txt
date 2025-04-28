@@ -1,0 +1,7 @@
+APScheduler==3.10.4
+Flask==3.1.0
+Flask_Cors==5.0.0
+Flask_Limiter==3.8.0
+Requests==2.32.3
+schedule==1.2.2
+SQLAlchemy==2.0.36
